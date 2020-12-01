@@ -1,5 +1,6 @@
 <template>
-  <v-container>
+<div>
+  <v-container fluid>
     <v-row>    
       <v-card>
         <v-img height="100%" width="100%" src="../assets/hero-background.jpg" />
@@ -7,6 +8,10 @@
     </v-row>
   
   </v-container>
+  <v-container>
+
+  </v-container>
+</div>
 </template>
 
 <script>
