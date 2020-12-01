@@ -2,7 +2,7 @@
     <v-app>
       <v-app-bar
         app
-        color="transparent"
+        color="white"
         flat
       >
         <div class="d-flex align-center">
@@ -53,6 +53,22 @@
       <v-main>
         <router-view></router-view>
       </v-main>
+
+      <v-bottom-navigation app color="white" flat>
+        <v-row>
+          <v-col cols="6">
+            <v-card>
+              1
+            </v-card>
+          </v-col>
+
+          <v-col cols="6">
+            <v-card>
+              2
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-bottom-navigation>
     </v-app>
 </template>
 
