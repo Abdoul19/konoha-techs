@@ -102,13 +102,16 @@
       </v-row>
 
       <v-row>
-        <template>
-          <v-col cols=3>
+        <template v-for="(tech, key) in specialities">
+          <v-col cols=3 :key=key>
             <v-card class="pa-2" outlined tile>
-
-              <v-card-title></v-card-title>
+              
+              <v-card-title>
+                <img :src="'../assets/'+tech.icone"/>
+                {{tech.title}}
+              </v-card-title>
               <v-card-text>
-
+                {{tech.content}}
               </v-card-text>
             </v-card>
           </v-col>
@@ -160,12 +163,12 @@ export default {
         {
           title: 'Adobe Experience Manager',
           content: 'Nine-year WCM Magic Quadrant Leader according to Gartner, AEM is one of the heavy hitters in the WCM space. It takes some serious experience to master and we know it’s not always easy. Our advice: get a reliable guide.',
-          icone: 'techs-aem.svg'
+          icone: 'tech-aem.svg'
         },
         {
           title: 'Adobe Analytics',
           content: "We won't explain to you the real value of real metrics. But we will say that designing and implementing a metrics strategy that ensures accurate, actionable results is a complex, often underestimated task. We use Adobe Analytics to make it happen. So you can put your feet up and let us do the hard work.",
-          icone: 'techs-aem.svg'
+          icone: 'tech-aem.svg'
         },
         {
           title: 'Workfront',
