@@ -53,22 +53,92 @@
       <v-main>
         <router-view></router-view>
       </v-main>
-
-      <v-bottom-navigation app color="white" flat>
+    
+      <v-footer
+        dark
+        padless
+      >
+      <v-container>
         <v-row>
-          <v-col cols="6">
-            <v-card>
-              1
+          <v-col cols=6>
+            <v-card flat tile color="transparent">
+              <v-card-title>
+                <v-img
+                  alt="Konoha Logo"
+                  class="shrink mr-2"
+                  contain
+                  src="./assets/logo/web/logo-web-transparent-white.png"
+                  transition="scale-transition"
+                  width="200"
+                />
+              </v-card-title>
+              <v-card-text class="grey--text pt-0">
+                {{footerText}}
+              </v-card-text>
             </v-card>
           </v-col>
 
-          <v-col cols="6">
-            <v-card>
-              2
+          <v-col cols=2>
+            <v-card flat tile color="transparent">
+              <v-card-title>
+                Helpful Links
+              </v-card-title>
+                <router-link v-for="(item, key) in footerHelpLinks"
+                  :key="key"
+                  class="mx-4 grey--text"
+                  :to="{name: item.link}"
+                  tag="span"
+                >
+                  {{item.title}} <br/>
+                </router-link>
+              </v-card>
+          </v-col>
+
+          <v-col cols=3>
+            <v-card flat tile color="transparent">
+              <v-card-title>
+                Contacts
+              </v-card-title>
+              <v-card-text>
+                Djelibougou, Koulikoro road, BCS Bank building <br/>
+                Phone: (00223) 44340545<br/>
+                E-Mail: info@konoha-technologies.ml
+              </v-card-text>
+              <v-card-text>
+                <v-btn
+                  v-for="icon in icons"
+                  :key="icon"
+                  class=" grey--text"
+                  icon
+                >
+                  <v-icon size="24px">{{ icon }}</v-icon>
+                </v-btn>
+              </v-card-text>
             </v-card>
           </v-col>
         </v-row>
-      </v-bottom-navigation>
+        
+
+        <v-row>
+          <v-col cols=12>
+            <v-divider></v-divider>
+          </v-col>
+
+          <v-col cols=12>
+            <v-card  flat tile color="transparent" >
+              
+
+              <v-card-text class="text-center grey--text">
+                {{ new Date().getFullYear() }} — <strong>Konoha Technologies</strong>
+              </v-card-text>
+            </v-card>
+          </v-col>
+
+        </v-row>
+       
+      </v-container>
+      </v-footer>
+    
     </v-app>
 </template>
 
@@ -82,7 +152,31 @@ export default {
   },
 
   data: () => ({
-    //
+    icons: [
+        'mdi-facebook',
+        'mdi-twitter',
+        'mdi-linkedin',
+        'mdi-instagram',
+    ],
+    footerText: "Konoha Technologies partners with customers to design and deliver great software products. We specialize in a wide variety of tools and technologies and assist customers in adopting the best patterns and practices for utilizing these platforms.",
+    footerHelpLinks: [
+      {
+        title: "Home",
+        link: "Home"
+      },
+      {
+        title: "Services",
+        link: "Services"
+      },
+      {
+        title: "About Us",
+        link: "About"
+      },
+      {
+        title: "Privacy Policy",
+        link: "Privacy"
+      },
+    ]
   }),
 };
 </script>

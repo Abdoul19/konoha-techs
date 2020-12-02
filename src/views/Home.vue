@@ -18,73 +18,46 @@
   <v-container>
     <v-row>
       <v-row>
-        <v-col cols=6>
-          <v-card>
-            <v-card-title>What we do</v-card-title>
-            <v-card-subtitle>
+        <v-col cols=12>
+          <v-card tile flat >
+            <v-card-title >What we do</v-card-title>
+            <v-card-subtitle >
               Our teams of technologists leverage modern tools and processes to solve your most pressing technology problems. 
               We do this by providing a number of services such as those described below and on our Services page: 
             </v-card-subtitle>
           </v-card>
         </v-col>
       </v-row>
+
       <v-row>
+
       <v-col cols="6">
-
-        <v-card class="my-6">
+        <template :v-for="(work, key) in ourWork">
+        <v-card :key=key class="my-6" >
           <v-card-title>
-            Web and Mobile Development
+            <v-icon class="mx-1" color="primary" size="24px">{{ work.icone }}</v-icon>
+            {{ work.title}}
           </v-card-title>
           <v-card-text>
-            Our experienced Agile development teams can help offload your backlog of web or mobile development projects. 
-            We can help you design, build, and launch your mobile apps into the iOS and Android stores.
+            
           </v-card-text>
         </v-card>
-
-        <v-card class="my-6">
-          <v-card-title>
-            Cloud Migration
-          </v-card-title>
-          <v-card-text>
-            The ArchitectNow team of Cloud experts can help you efficiently migrate your applications and services to Microsoft's Azure cloud platform. 
-            Already in the cloud? We can help monitor and maintain your solutions. 
-            We also help customers "right size" the cloud investments by reviewing their architecture and implementations against their current spending patterns.
-          </v-card-text>
-        </v-card>
-
-        <v-card class="my-6">
-          <v-card-title>
-            CTO For Hire
-          </v-card-title>
-          <v-card-text>
-            We partner with companies to give this kind of strategic technical guidance at the highest level to make sure they succeed because of their technology, not despite it.
-          </v-card-text>
-        </v-card>
+        </template>
       </v-col>
 
       <v-col cols="6">
         <v-card class="my-6">
           <v-card-title>
-            App Modernization
+            <v-icon color="primary" size="24px"></v-icon>
+            
           </v-card-title>
           <v-card-text>
-            We guide customers through the application modernization process, and in most cases do the work for them while taking every opportunity possible along the way to mentor and grow their team's skills to enhance and support these new platforms.
+            
           </v-card-text>
         </v-card>
-
-        <v-card class="my-6">
-          <v-card-title>
-             Development Process Consulting
-          </v-card-title>
-          <v-card-text>
-            Anything worth doing is worth doing right, especially when it comes to building your own software. 
-            We can help your team optimize their development process to make them more efficient in their work and to raise the overall quality of the products they are delivering.
-          </v-card-text>
-        </v-card>
-        <v-card class="my-6">
-          6
-        </v-card>
+        
       </v-col>
+
       </v-row>
     </v-row>
     
@@ -104,13 +77,13 @@
       <v-row>
         <template v-for="(tech, key) in specialities">
           <v-col cols=3 :key=key>
-            <v-card class="pa-2" outlined tile>
-              
-              <v-card-title>
-                <img :src="'../assets/'+tech.icone"/>
+            <v-card outlined tile class="pa-2" min-height="300">
+              <v-img contain max-width="70" max-height="70" :alt="tech.title+'-logo'" :src="require(`../assets/${tech.icone}`)" />
+              <v-card-title class="pa-0">
+                
                 {{tech.title}}
               </v-card-title>
-              <v-card-text>
+              <v-card-text class="pa-0">
                 {{tech.content}}
               </v-card-text>
             </v-card>
@@ -120,26 +93,105 @@
     </v-row>
 
     <v-row>
+      <v-row style="width: 100%">
+        <v-col cols=12>
+          <v-card flat tile>
+            <v-card-title>
+              Say Hello
+            </v-card-title>
+          </v-card>
+        </v-col>
+      </v-row>
+
       <v-row>
         <v-col cols=4>
-          <v-card>
-            <v-card-title>
-              Say hello
+          <v-card flat tile>
+            <v-card-title >
+              Have questions? <br/>
+              We probably have answers.
             </v-card-title>
+            <v-card-subtitle>
+              Drop us a line and let us know how we can help you up your digital game.
+            </v-card-subtitle>
+            <v-card-actions>
+
+              <a target="_blank" href="">
+                <v-icon large color="primary darken-2">mdi-facebook</v-icon>
+              </a>
+              
+              <a target="_blank" href="">
+                <v-icon large color="primary darken-2">mdi-linkedin</v-icon>
+              </a>
+
+              <a target="_blank" href="">
+                <v-icon large color="primary darken-2">mdi-twitter</v-icon>
+              </a>
+
+            </v-card-actions>
           </v-card>
         </v-col>
+
         <v-col cols=4>
-          <v-card>
-            <v-card-title>
-              Say hello
-            </v-card-title>
+          <v-card flat tile>
+            <form>
+              <v-text-field
+                v-model="firstname"
+                :error-messages="firstnameErrors"
+                :counter="10"
+                label="Firstname"
+                required
+                outlined
+                @input="$v.name.$touch()"
+                @blur="$v.name.$touch()"
+              ></v-text-field>
+              <v-text-field
+                v-model="lastname"
+                :error-messages="lastnameErrors"
+                :counter="10"
+                label="Lastname"
+                required
+                outlined
+                @input="$v.name.$touch()"
+                @blur="$v.name.$touch()"
+              ></v-text-field>
+              <v-text-field
+                v-model="company"
+                :error-messages="companyErrors"
+                :counter="10"
+                label="Company"
+                outlined
+                @input="$v.name.$touch()"
+                @blur="$v.name.$touch()"
+              ></v-text-field>
+              <v-text-field
+                v-model="email"
+                :error-messages="emailErrors"
+                label="E-mail"
+                required
+                outlined
+                @input="$v.email.$touch()"
+                @blur="$v.email.$touch()"
+              ></v-text-field>
+            </form>
           </v-card>
         </v-col>
+
         <v-col cols=4>
-          <v-card>
-            <v-card-title>
-              Say hello
-            </v-card-title>
+          <v-card flat tile>
+            <v-textarea
+                rows=8
+                v-model="message"
+                :error-messages="messageErrors"
+                :counter="1000"
+                label="Message"
+                required
+                outlined
+                @input="$v.name.$touch()"
+                @blur="$v.name.$touch()"
+              ></v-textarea>
+
+              <v-btn class="mr-4" @click="submit">submit</v-btn>
+              <v-btn @click="clear">clear</v-btn>
           </v-card>
         </v-col>
       </v-row>
@@ -149,16 +201,29 @@
 </template>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
+import { validationMixin } from 'vuelidate'
+import { required, maxLength, email } from 'vuelidate/lib/validators'
 
 export default {
   name: 'Home',
   components: {
     //HelloWorld
   },
+  mixins: [validationMixin],
+  validations: {
+      firstname: { required, maxLength: maxLength(10) },
+      lastname: { required, maxLength: maxLength(10) },
+      message: { required, maxLength: maxLength(1000) },
+      company: { maxLength: maxLength(15) },
+      email: { required, email },
+    },
   data(){
     return {
+      firstname: '',
+      lastname: '',
+      company: '',
+      email: '',
+      message: '',
       specialities: [
         {
           title: 'Adobe Experience Manager',
@@ -173,7 +238,7 @@ export default {
         {
           title: 'Workfront',
           content: "Workfront is a worldwide leader in project and portfolio management. It is a robust, collaborative, and dynamic platform. We've had the chance to both use it as end-users and to look under the hood as developers and integrate it with other platforms.",
-          icone: 'techs-workront.svg'
+          icone: 'tech-workfront.svg'
         },
         {
           title: 'Azure',
@@ -198,7 +263,7 @@ export default {
         {
           title: 'Xamarin',
           content: "Hands down, Xamarin is the best tool for app development, getting our products on all platforms in next to no time. With Xamarin Test Cloud we can also make sure our apps work perfectly on any device we're targeting, lowering costs and preventing consumer frustration.",
-          icone: 'tech-xamarin.js'
+          icone: 'tech-xamarin.svg'
         },
         {
           title: "MongoDB",
@@ -215,8 +280,85 @@ export default {
           content: "Metabase is an elegant, easy and affordable approach to open source BI. You may not be able to spend your entire budget on a BI tool, and Metabase proves that you really don’t need to.",
           icone: 'tech-metabase.svg'
         }
+      ],
+      ourWork: [
+        {
+          title: "Web and Mobile Development",
+          description: "Our experienced Agile development teams can help offload your backlog of web or mobile development projects. We can help you design, build, and launch your mobile apps into the iOS and Android stores.",
+          icone: "mdi-cellphone-link"
+        },
+        {
+          title: "Cloud Migration",
+          description: "The ArchitectNow team of Cloud experts can help you efficiently migrate your applications and services to Microsoft's Azure cloud platform. Already in the cloud? We can help monitor and maintain your solutions. We also help customers 'right size' the cloud investments by reviewing their architecture and implementations against their current spending patterns.",
+          icone: "mdi-cloud-check"
+        },
+        {
+          title: "CTO For Hire",
+          description: "We partner with companies to give this kind of strategic technical guidance at the highest level to make sure they succeed because of their technology, not despite it.",
+          icone: "mdi-handshake-outline"
+        },
+        {
+          title: "App Modernization",
+          description: "We guide customers through the application modernization process, and in most cases do the work for them while taking every opportunity possible along the way to mentor and grow their team's skills to enhance and support these new platforms.",
+          icone: "mdi-cellphone-iphone"
+        },
+        {
+          title: "Development Process Consulting",
+          description: "Anything worth doing is worth doing right, especially when it comes to building your own software. We can help your team optimize their development process to make them more efficient in their work and to raise the overall quality of the products they are delivering.",
+          icone: "mdi-arrow-decision"
+        }
       ]
     }
-  }
+  },
+  computed: {
+    firstnameErrors () {
+        const errors = []
+        if (!this.$v.firstname.$dirty) return errors
+        !this.$v.firstname.maxLength && errors.push('Name must be at most 10 characters long')
+        !this.$v.firstname.required && errors.push('Name is required.')
+        return errors
+    },
+    lastnameErrors () {
+        const errors = []
+        if (!this.$v.lastname.$dirty) return errors
+        !this.$v.lastname.maxLength && errors.push('Lastname must be at most 10 characters long')
+        !this.$v.lastname.required && errors.push('Lastname is required.')
+        return errors
+    },
+    companyErrors () {
+        const errors = []
+        if (!this.$v.company.$dirty) return errors
+        !this.$v.company.maxLength && errors.push('Lastname must be at most 10 characters long')
+        //!this.$v.lastname.required && errors.push('Lastname is required.')
+        return errors
+    },
+    massageErrors () {
+        const errors = []
+        if (!this.$v.message.$dirty) return errors
+        !this.$v.message.maxLength && errors.push('Message must be at most 1000 characters long')
+        !this.$v.message.required && errors.push('Message is required.')
+        return errors
+    },
+    emailErrors () {
+      const errors = []
+      if (!this.$v.email.$dirty) return errors
+      !this.$v.email.email && errors.push('Must be valid e-mail')
+      !this.$v.email.required && errors.push('E-mail is required')
+      return errors
+    },
+  },
+  methods: {
+    submit () {
+      this.$v.$touch()
+    },
+    clear () {
+      this.$v.$reset()
+      this.firstname = ''
+      this.lastname = ''
+      this.message = ''
+      this.Company = ''
+      this.email = ''
+    },
+  },
 }
 </script>
