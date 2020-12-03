@@ -1,0 +1,55 @@
+<template>
+<v-container>
+  <v-row>
+    <v-col cols=12>
+      <v-card flat tile>
+        <v-card-title>
+          Web Development
+        </v-card-title>
+
+        <v-card-text>
+          Any quality web experience starts with the end user’s goals and best interests in mind. It has become easier and easier to build a native-like experience in a web browser for use by most any user regardless of the device, location, or technology they use. That seamless experience should feel so intuitive for the user it must’ve been built with that individual in mind. Part of that consideration should be detecting when the user is on a mobile device and modifying the view with that context in mind. No one wants to pinch and zoom a webpage just to read what it says or scroll excessively to read sections which expand past the edge of the screen. Small tweaks can be made site-wide to make sure the mobile experience of a browser experience is just as seamless as a full desktop experience. Ultimately a web experience is simply a visual experience which reflects a, potentially complex, data collection. When the browser experience is decoupled from the data source you can build it to leverage as many data sources as necessary. This decoupling actually promotes a more flexible maintainability of the platform as a whole, where changes made to either the front end or back end don’t require a redeployment of the whole platform. Even the best designed web experience isn’t secure by default. Securing access control, data sources, asset storage locations, and server access all require purposeful planning for a cohesive security layer around the whole platform. Modern tools offer great power, but require an understanding of the risk exposure that come along with them. We stay abreast of all the best practices to deliver the best experience, in any modern browser, to access any robust data source, all while maintaining proper security protocols to protect each layer of a web platform. The execution of this process is swift and methodical, based on and Agile planning methodology.
+        </v-card-text>
+      </v-card>
+    </v-col>
+
+    <v-col cols=12>
+      <v-card flat tile>
+        <v-card-title>
+          Mobile Development
+        </v-card-title>
+
+        <v-card-text>
+          Sometimes a native mobile application is simply the best solution for an end user. Leveraging on-device hardware like Bluetooth, local storage options, cameras, or sensors provides far more value than anything a web browser could attempt to provide. In these cases, mobile applications are a genuine tool as compared to simply a way to interact with data.
+
+Writing these mobile applications has become far easier thanks to cross platform frameworks which allow developers to write code once which can target multiple mobile platforms. This single code base development efficiency allows for a far lower barrier to entry as well as easier maintainability for deploying multiple mobile applications to their respective app stores.
+
+While its now easy to target many platforms, designing apps which behave slightly differently across different platforms is an art form. The design principles encourage intuitive controls, while only giving users as many options as they need at a given moment. Managing the screen real estate cross multiple size mobile devices can also be an factor in how users experience the tools provided to them.
+
+Using all of these on device hardware components, managing code across multiple target platforms, and managing many rich views at a time lends an awareness of performance and memory management. On mobile devices, an app has more access to system resources which requires a respect for how the device operating system wants to manage these apps. The art of performance management is only learned with experience of how mobile operating systems treat the features developers use.
+
+As with any other technical platform, security should be at the forefront of mobile application design. Not only do you want to secure any web requests in and out of the application, but it’s also important to set security policies for on device, between application communications.
+
+Once a mobile application is created it still needs to be added to the app stores via a deployment pipeline. There are tools that facilitate this process, however submitting applications and updates to those applications require submitting a bundle of additional information and media. Without a repeatable process to deploy mobile applications, it is easy to get tripped up along the way and experience delays on submissions to the app stores.
+
+Native mobile applications are an incredible way to reach your end users. Considering everything that goes into building, deploying and maintaining a mobile application, it’s important to partner with an experienced team to deliver that value to your users. We can help you define, design, build and manage a mobile application solution.
+        </v-card-text>
+      </v-card>
+    </v-col>
+
+  </v-row>
+</v-container>
+</template>
+
+<script>
+export default {
+  name: 'WebDev',
+  data: () => {
+    return {}
+  }
+}
+</script>
+
+<style>
+
+</style>

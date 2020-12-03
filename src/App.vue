@@ -18,32 +18,28 @@
         <v-spacer></v-spacer>
 
         <v-btn
-          href=""
-          target="_blank"
+          :to="{name: 'Home'}"
           text
         >
           <span class="mr-2">Home</span>
         </v-btn>
 
         <v-btn
-          href=""
-          target="_blank"
+          :to="{name: 'Service'}"
           text
         >
           <span class="mr-2">Services</span>
         </v-btn>
 
         <v-btn
-          href=""
-          target="_blank"
+          :to="{name: 'About'}"
           text
         >
           <span class="mr-2">About Us</span>
         </v-btn>
 
         <v-btn
-          href=""
-          target="_blank"
+          to="contacts"
           text
         >
           <span class="mr-2">Contacts</span>
@@ -100,7 +96,8 @@
                 Contacts
               </v-card-title>
               <v-card-text>
-                Djelibougou, Koulikoro road, BCS Bank building <br/>
+                Djelibougou, Koulikoro road,<br/>
+                BCS Bank building <br/>
                 Phone: (00223) 44340545<br/>
                 E-Mail: info@konoha-technologies.ml
               </v-card-text>
@@ -166,16 +163,12 @@ export default {
       },
       {
         title: "Services",
-        link: "Services"
+        link: "Service"
       },
       {
         title: "About Us",
         link: "About"
-      },
-      {
-        title: "Privacy Policy",
-        link: "Privacy"
-      },
+      }
     ]
   }),
 };

@@ -1,0 +1,79 @@
+<template>
+<v-container>
+  <v-row>
+    <v-col cols=12>
+      <v-card flat tile>
+        <v-card-text>
+          Do you know how to assess if your key applications and services are at risk? If there are whole generations of technologies you could leap frog over? Or frankly if your competitors are more agile and adaptive than you are?
+
+For years companies of all sizes have opted to custom develop critical technology systems. It doesn’t matter whether these were designed to streamline key workflows and to make the company and their employees more efficient or to be products that the company sells to their customers or uses to efficiently communicate and interact with customers.
+
+The nature of software development is that eventually these applications become outdated and are considered to be legacy. The technologies and architectures they were originally built on become unsupported and difficult to maintain. These legacy systems are now costly to support and often a critical risk to a company’s future success.
+
+Beyond the initial assessment, our team of technology experts can assist in the migration of these systems to a more up-to-date and cloud-enabled platform. We typically help customers assess what they have currently and provide an honest review of the risks, the benefits, and the potential costs of modernization. Based on that information, when a decision is made to modernize a particular platform we can help with all aspects of the modernization. This includes managing and implementing the entire process including the design, management, development, testing and deployment.
+
+Many clients take advantage of this process to go beyond simply rebuilding the same solution on a modern technology platform. They utilize the opportunity to enhance and improve their legacy systems. This includes updating workflows and adding features requested by their employees or customers. The ultimate benefit is a more modern platform and an improved product for all users. This nearly always ends in a situation with lower risk, lower cost of long-term support and maintenance, and increased user productivity. Many times, a modernization project can be performed in a series of phases. This helps lower the overall risk and make the budgeting process more manageable. 
+        </v-card-text>
+      </v-card>
+    </v-col>
+
+    <v-col cols=12>
+      <v-card flat tile>
+        <v-card-title>
+          Assessment
+        </v-card-title>
+
+        <v-card-text>
+          Our team can work with your stakeholders and technical team to assess your at-risk platforms. This step includes reviewing the current databases, source code, dependencies, security and discussing usage and feature requirements. We work to understand how your business utilizes a specific software product (or a group of products), as well as gather as much information and documentation as possible on legacy systems to assist in evaluating the complexity of potential modernization options.
+
+As these types of assessments progress, a much clearer picture of the possibilities are clear. Based on this information we are able to make recommendations on what steps might be most suitable given a particular situation.These recommendations always include potential risks, benefits, and an estimate of the cost and a timeline of a modernization effort. 
+        </v-card-text>
+      </v-card>
+    </v-col>
+
+    <v-col cols=12>
+      <v-card flat tile>
+        <v-card-title>
+          Implementation
+        </v-card-title>
+
+        <v-card-text>
+          Once an assessment has been completed and a plan is ready to be implemented, ArchitectNow can work closely with client stakeholders and technology staff to effectively implement the modernization plan. Our agile development processes help us to deliver quality software in short iterative stages to show you progress every step of the way.
+
+These stages allow for a short feedback cycle, as well as opportunities for controlled adjusting of plans along the way as we discover more about the nature of the software. We expect plans to evolve along the way, so we embrace this change, yet keep a keen eye on how such changes effect the budget and timeline for the full scope of work.
+
+This process not only allows for, but encourages ongoing communication with stakeholders. The opportunity to learn more about how your modernized solution works is ever present at this stage. We can teach you along the way or all at the end what it means to 
+        </v-card-text>
+      </v-card>
+    </v-col>
+      <v-col cols=12>
+      <v-card flat tile>
+        <v-card-title>
+          Optimization
+        </v-card-title>
+
+        <v-card-text>
+          Once a legacy system has been successfully upgraded to a newer platform we typically stay involved as much is as needed to help monitor and optimize the product and ensure everything is running smoothly. During this phase we can also make adjustments to the application based on user feedback or on the results of monitoring of servers, databases, and other application components.
+
+Newer development tools and technologies offer a variety of opportunities to grow a platform beyond what might have been capable when the original application was written. This allows for the ability to include such things as native mobile applications targeting iOS or Android devices, leveraging artificial intelligence or machine learning, mapping and more. As we work with clients to modernize their solutions we frequently find areas of improvement or innovation that we recommend or discuss.
+
+Don’t stay in the dark or turn a blind eye to your software suite. How long could your business survive if some preventable problem rendered your platforms useless?
+
+ArchitectNow can work to help review your current technology platforms and provide an expert evaluation of your current environment, any technology risks within your key systems, and a recommendation on potential ways to mitigate the current risks and a path towards a more modern and stable environment. 
+        </v-card-text>
+      </v-card>
+    </v-col>
+
+  </v-row>
+</v-container>
+</template>
+
+<script>
+export default {
+  name: 'AppModerniz'
+}
+</script>
+
+<style>
+
+</style>
