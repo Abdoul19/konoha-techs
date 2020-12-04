@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="px-6 px-sm-6">
     <v-card flat tile>
       <v-card-title>
         About Us

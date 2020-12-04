@@ -14,10 +14,10 @@
 
       <v-row>
 
-      <v-col cols="6">
+      <v-col cols="12" md=6>
         <template v-for="(service, key) in services" >
         <v-card :to="{ name: service.link}" v-if="key == 0 | key == 2 | key == 4 | key == 6" :key=key class="my-6" >
-          <v-card-title>
+          <v-card-title class="text-subtitle-1">
             <v-icon class="mx-1" color="primary" size="24px">{{ service.icone }}</v-icon>
             {{service.title}}
           </v-card-title>
@@ -28,10 +28,10 @@
         </template>
       </v-col>
 
-      <v-col cols="6">
+      <v-col cols="12" md=6>
         <template v-for="(service, key) in services" >
         <v-card :to="{ name: service.link}" v-if="key == 1 | key == 3 | key == 5" :key=key class="my-6" >
-          <v-card-title>
+          <v-card-title class="text-subtitle-1">
             <v-icon class="mx-1" color="primary" size="24px">{{ service.icone }}</v-icon>
             {{service.title}}
           </v-card-title>

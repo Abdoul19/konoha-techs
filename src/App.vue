@@ -5,48 +5,79 @@
         color="white"
         flat
       >
-        <div class="d-flex align-center">
-          <v-img
-            alt="Konoha Logo"
-            class="shrink mr-2"
-            contain
-            src="./assets/logo/web/logo-web-transparent.png"
-            transition="scale-transition"
-            width="200"
-          />
-        </div>
-        <v-spacer></v-spacer>
+        <template v-if="$vuetify.breakpoint.mdAndUp">
+          <div  class="d-flex align-center">
+            <v-img
+              alt="Konoha Logo"
+              class="shrink mr-2"
+              contain
+              src="./assets/logo/web/logo-web-transparent.png"
+              transition="scale-transition"
+              width="200"
+            />
+          </div>
+          <v-spacer></v-spacer>
 
-        <v-btn
-          :to="{name: 'Home'}"
-          text
-        >
-          <span class="mr-2">Home</span>
-        </v-btn>
+          <template>
+            <v-btn
+              v-for="(item, i) in menuItems"
+              :key="i"
+              :to="{name: item.link}"
+              text
+              :exact=true
+            >
+              <span class="mr-2">{{item.title}}</span>
+            </v-btn>
 
-        <v-btn
-          :to="{name: 'Service'}"
-          text
-        >
-          <span class="mr-2">Services</span>
-        </v-btn>
+          
+          </template>
+        
+        </template>
+        <template v-if="$vuetify.breakpoint.smAndDown">
+          <v-row>
 
-        <v-btn
-          :to="{name: 'About'}"
-          text
-        >
-          <span class="mr-2">About Us</span>
-        </v-btn>
+            <div class="d-flex align-center">
+              <v-img
+                alt="Konoha Logo"
+                class="shrink mr-2"
+                contain
+                src="./assets/logo/web/logo-web-transparent.png"
+                transition="scale-transition"
+                width="200"
+              />
+            </div>
+            <v-spacer></v-spacer>
 
-        <v-btn
-          to="contacts"
-          text
-        >
-          <span class="mr-2">Contacts</span>
-        </v-btn>
+            <v-menu class="d-flex">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  dark
+                  icon
+                  v-bind="attrs"
+                  v-on="on"
+                  :x-large="true"
+                >
+                  <v-icon color="primary">mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+
+              <v-list>
+                <v-list-item
+                  v-for="(item, i) in menuItems"
+                  :key="i"
+                  :to="{name: item.link}"
+                  :exact=true
+                >
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
+          </v-row>
+        </template>
       </v-app-bar>
 
-      <v-main>
+      <v-main >
         <router-view></router-view>
       </v-main>
     
@@ -56,7 +87,7 @@
       >
       <v-container>
         <v-row>
-          <v-col cols=6>
+          <v-col cols="12" md=6>
             <v-card flat tile color="transparent">
               <v-card-title>
                 <v-img
@@ -74,7 +105,7 @@
             </v-card>
           </v-col>
 
-          <v-col cols=2>
+          <v-col cols="12" md=2>
             <v-card flat tile color="transparent">
               <v-card-title>
                 Helpful Links
@@ -90,7 +121,7 @@
               </v-card>
           </v-col>
 
-          <v-col cols=3>
+          <v-col cols="12" md=3>
             <v-card flat tile color="transparent">
               <v-card-title>
                 Contacts
@@ -149,6 +180,7 @@ export default {
   },
 
   data: () => ({
+    sectionTitle: "h2", 
     icons: [
         'mdi-facebook',
         'mdi-twitter',
@@ -169,7 +201,13 @@ export default {
         title: "About Us",
         link: "About"
       }
-    ]
+    ],
+    menuItems: [
+        { title: 'Home', link: 'Home' },
+        { title: 'Services', link: 'Service' },
+        { title: 'About Us', link: 'About' },
+        { title: 'Contact', link: 'Contact' }
+      ],
   }),
 };
 </script>

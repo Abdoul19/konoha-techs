@@ -1,5 +1,7 @@
 <template>
+<v-container class="px-6 px-sm-6">
   <Contact/>
+</v-container>
 </template>
 
 <script>

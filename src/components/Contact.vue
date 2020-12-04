@@ -12,7 +12,7 @@
       </v-row>
 
       <v-row>
-        <v-col cols=4>
+        <v-col cols="12" md=6>
           <v-card flat tile>
             <v-card-title >
               Have questions? <br/>
@@ -39,7 +39,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols=4>
+        <v-col cols="12" md=6>
           <v-card flat tile>
             <form>
               <v-text-field
@@ -84,7 +84,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols=4>
+        <v-col cols="12" md=6>
           <v-card flat tile>
             <v-textarea
                 rows=8
