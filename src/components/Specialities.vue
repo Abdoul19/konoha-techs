@@ -14,7 +14,7 @@
 
       <v-row>
         <template v-for="(tech, key) in specialities">
-          <v-col cols=12 md=6 :key=key>
+          <v-col cols=12 md=3 :key=key>
             <v-card v-if="$vuetify.breakpoint.smAndDown" class="pa-2">
               <a style="text-decoration: none" :href="tech.link" target="_blank">
               <v-img contain max-width="70" max-height="70" :alt="tech.title+'-logo'" :src="require(`../assets/${tech.icone}`)" />

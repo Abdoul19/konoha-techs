@@ -1,46 +1,58 @@
 <template>
   <v-row>
-      <v-row>
+      <v-row v-if="addPresentation">
         <v-col cols=12>
-          <v-card tile flat >
+          <v-card  tile flat >
             <v-card-title class="text-h5">What we do</v-card-title>
             <v-card-subtitle>
               Our teams of technologists leverage modern tools and processes to solve your most pressing technology problems. 
               We do this by providing a number of services such as those described below and on our Services page: 
             </v-card-subtitle>
           </v-card>
+
+          <v-card class="red" v-if="addBanner" tile flat >
+            <v-card-title class="text-h5">Services</v-card-title>
+          </v-card>
         </v-col>
       </v-row>
 
+      <v-container pa-0 fluid v-if="addBanner">
+        
+          <v-card class="red" v-if="addBanner" tile flat >
+            <v-card-title class="text-h5">Services</v-card-title>
+          </v-card>
+        
+      </v-container>
+
       <v-row>
 
-      <v-col cols="12" md=6>
-        <template v-for="(service, key) in services" >
-        <v-card :to="{ name: service.link}" v-if="key == 0 | key == 2 | key == 4 | key == 6" :key=key class="my-6" >
-          <v-card-title class="text-subtitle-1">
-            <v-icon class="mx-1" color="primary" size="24px">{{ service.icone }}</v-icon>
-            {{service.title}}
-          </v-card-title>
-          <v-card-text>
-            {{service.description}}
-          </v-card-text>
-        </v-card>
-        </template>
-      </v-col>
+        <v-col cols="12" md=6>
+          <template v-for="(service, key) in services" >
+          <v-card :to="{ name: service.link}" v-if="key == 0 | key == 2 | key == 4 | key == 6" :key=key class="my-6" >
+            <v-card-title class="text-subtitle-1">
+              <v-icon class="mx-1" color="primary" size="24px">{{ service.icone }}</v-icon>
+              {{service.title}}
+            </v-card-title>
+            <v-card-text>
+              {{service.description}}
+            </v-card-text>
+          </v-card>
+          </template>
+        </v-col>
 
-      <v-col cols="12" md=6>
-        <template v-for="(service, key) in services" >
-        <v-card :to="{ name: service.link}" v-if="key == 1 | key == 3 | key == 5" :key=key class="my-6" >
-          <v-card-title class="text-subtitle-1">
-            <v-icon class="mx-1" color="primary" size="24px">{{ service.icone }}</v-icon>
-            {{service.title}}
-          </v-card-title>
-          <v-card-text>
-            {{service.description}}
-          </v-card-text>
-        </v-card>
-        </template>
-      </v-col>
+        <v-col cols="12" md=6>
+          <template v-for="(service, key) in services" >
+          <v-card :to="{ name: service.link}" v-if="key == 1 | key == 3 | key == 5" :key=key class="my-6" >
+            <v-card-title class="text-subtitle-1">
+              <v-icon class="mx-1" color="primary" size="24px">{{ service.icone }}</v-icon>
+              {{service.title}}
+            </v-card-title>
+            <v-card-text>
+              {{service.description}}
+            </v-card-text>
+          </v-card>
+          </template>
+        </v-col>
 
       </v-row>
   </v-row>
@@ -85,8 +97,9 @@ export default {
       ]
     }
   },
-  props: [
-
-  ]
+  props: {
+    addPresentation: Boolean,
+    addBanner: Boolean
+  }
 }
 </script>

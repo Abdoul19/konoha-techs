@@ -1,6 +1,6 @@
 <template>
   <v-container class="px-6 px-sm-6">
-    <Services/>
+    <Services :addPresentation="false" :addBanner=true></Services>
   </v-container>
 </template>
 
