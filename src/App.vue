@@ -4,9 +4,10 @@
         app
         color="white"
         flat
+        elevation="4"
       >
         <template v-if="$vuetify.breakpoint.mdAndUp">
-          <div  class="d-flex align-center">
+          <div  class="d-flex align-center py-2">
             <v-img
               alt="Konoha Logo"
               class="shrink mr-2"
@@ -14,6 +15,7 @@
               src="./assets/logo/web/logo-web-transparent.png"
               transition="scale-transition"
               width="200"
+              @click="$router.push({name: 'Home'})"
             />
           </div>
           <v-spacer></v-spacer>
@@ -25,59 +27,105 @@
               :to="{name: item.link}"
               text
               :exact=true
+              depressed
+              tile
+              height="100%"
+              color="primary"
+              class="font-weight-light"
             >
               <span class="mr-2">{{item.title}}</span>
             </v-btn>
 
           
           </template>
+
+          
+          <template>
+            <v-btn
+              v-for="(lang, i) in langs"
+              :key="`lang-${i}`"
+              @click="$i18n.locale = lang"
+              :disabled="$i18n.locale == lang"
+              x-small
+              text
+              depressed
+              style="min-width: 20px !important;"
+              class="px-0"
+            >
+              {{lang}}
+            </v-btn>
+          </template>
         
         </template>
         <template v-if="$vuetify.breakpoint.smAndDown">
-          <v-row>
+          <v-row class="d-flex justify-space-between align-center">
 
-            <div class="d-flex align-center">
+            <div class="">
+
+              <v-menu class="d-flex" rounded="0">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    dark
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
+                    :x-large="true"
+                  >
+                    <v-icon color="primary">mdi-menu</v-icon>
+                  </v-btn>
+                </template>
+
+                <v-list>
+                  <v-list-item-group
+                    color="primary"
+                  >
+                  <v-list-item
+                    v-for="(item, i) in menuItems"
+                    :key="i"
+                    :to="{name: item.link}"
+                    :exact=true
+                    class="font-weight-light"
+                  >
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item>
+                  </v-list-item-group>
+                </v-list>
+              </v-menu>
+            </div>
+
+            <div>
               <v-img
                 alt="Konoha Logo"
                 class="shrink mr-2"
                 contain
                 src="./assets/logo/web/logo-web-transparent.png"
                 transition="scale-transition"
-                width="200"
+                width="150"
+                @click="$router.push({name: 'Home'})"
               />
             </div>
-            <v-spacer></v-spacer>
 
-            <v-menu class="d-flex">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  dark
-                  icon
-                  v-bind="attrs"
-                  v-on="on"
-                  :x-large="true"
-                >
-                  <v-icon color="primary">mdi-dots-vertical</v-icon>
-                </v-btn>
-              </template>
-
-              <v-list>
-                <v-list-item
-                  v-for="(item, i) in menuItems"
-                  :key="i"
-                  :to="{name: item.link}"
-                  :exact=true
-                >
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
+            <div>
+              <v-btn
+                v-for="(lang, i) in langs"
+                :key="`lang-${i}`"
+                @click="$i18n.locale = lang"
+                :disabled="$i18n.locale == lang"
+                x-small
+                text
+                depressed
+                style="min-width: 20px !important;"
+                class="px-0"
+              >
+                {{lang}}
+              </v-btn>
+            </div>
 
           </v-row>
         </template>
       </v-app-bar>
 
-      <v-main >
+      <v-main class="">
         <router-view></router-view>
       </v-main>
     
@@ -100,7 +148,7 @@
                 />
               </v-card-title>
               <v-card-text class="grey--text pt-0">
-                {{footerText}}
+                {{$t('Footer.FooterText')}}
               </v-card-text>
             </v-card>
           </v-col>
@@ -121,16 +169,13 @@
               </v-card>
           </v-col>
 
-          <v-col cols="12" md=3>
+          <v-col cols="12" md=4>
             <v-card flat tile color="transparent">
               <v-card-title>
                 Contacts
               </v-card-title>
-              <v-card-text>
-                Djelibougou, Koulikoro road,<br/>
-                BCS Bank building <br/>
-                Phone: (00223) 44340545<br/>
-                E-Mail: info@konoha-technologies.ml
+              <v-card-text v-html="$t('Footer.Address')">
+                
               </v-card-text>
               <v-card-text>
                 <v-btn
@@ -186,28 +231,27 @@ export default {
         'mdi-twitter',
         'mdi-linkedin',
         'mdi-instagram',
-    ],
-    footerText: "Konoha Technologies partners with customers to design and deliver great software products. We specialize in a wide variety of tools and technologies and assist customers in adopting the best patterns and practices for utilizing these platforms.",
-    footerHelpLinks: [
-      {
-        title: "Home",
-        link: "Home"
-      },
-      {
-        title: "Services",
-        link: "Service"
-      },
-      {
-        title: "About Us",
-        link: "About"
-      }
-    ],
-    menuItems: [
-        { title: 'Home', link: 'Home' },
-        { title: 'Services', link: 'Service' },
-        { title: 'About Us', link: 'About' },
-        { title: 'Contact', link: 'Contact' }
-      ],
+    ]
+    
+    
   }),
+  computed:{
+    menuItems(){
+      return [
+        { title: this.$t('NavBar.Link.Home'), link: 'Home' },
+        { title: this.$t('NavBar.Link.Services'), link: 'Service' },
+        { title: this.$t('NavBar.Link.About'), link: 'About' },
+        { title: this.$t('NavBar.Link.Contacts'), link: 'Contact' }
+      ]
+    },
+
+    footerHelpLinks(){
+      return [
+      { title: this.$t('NavBar.Link.Home'), link: 'Home' },
+      { title: this.$t('NavBar.Link.Services'), link: 'Service' },
+      { title: this.$t('NavBar.Link.About'), link: 'About' },
+    ]
+    }
+  }
 };
 </script>

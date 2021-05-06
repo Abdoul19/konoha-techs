@@ -35,7 +35,7 @@ const routes = [
   {
     path: '/services/dev-process',
     name: 'ServiceDevProcess',
-    component: () => import(/* webpackChunkName: "ServiceDevProcess" */ '../components/Services/Cto.vue')
+    component: () => import(/* webpackChunkName: "ServiceDevProcess" */ '../components/Services/DevProcess.vue')
   },
   {
     path: '/services/web-dev',

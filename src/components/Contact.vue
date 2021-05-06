@@ -4,8 +4,8 @@
       <v-row style="width: 100%">
         <v-col cols=12>
           <v-card flat tile>
-            <v-card-title class="text-h5">
-              Say Hello
+            <v-card-title class="text-h5 text-sm-h3 font-weight-light primary--text text--lighten-1">
+              {{ $t('Contact.Title')}}
             </v-card-title>
           </v-card>
         </v-col>
@@ -15,24 +15,24 @@
         <v-col cols="12" md=4>
           <v-card flat tile>
             <v-card-title >
-              Have questions? <br/>
-              We probably have answers.
+              {{ $t('Contact.Form.Title1')}} <br/>
+              {{ $t('Contact.Form.Title2')}}
             </v-card-title>
             <v-card-subtitle>
-              Drop us a line and let us know how we can help you up your digital game.
+              {{ $t('Contact.Form.Subtitle')}}
             </v-card-subtitle>
             <v-card-actions>
 
               <a target="_blank" href="">
-                <v-icon large color="primary darken-2">mdi-facebook</v-icon>
+                <v-icon large color="primary">mdi-facebook</v-icon>
               </a>
               
               <a target="_blank" href="">
-                <v-icon large color="primary darken-2">mdi-linkedin</v-icon>
+                <v-icon large color="primary">mdi-linkedin</v-icon>
               </a>
 
               <a target="_blank" href="">
-                <v-icon large color="primary darken-2">mdi-twitter</v-icon>
+                <v-icon large color="primary">mdi-twitter</v-icon>
               </a>
 
             </v-card-actions>
@@ -46,7 +46,7 @@
                 v-model="firstname"
                 :error-messages="firstnameErrors"
                 :counter="10"
-                label="Firstname"
+                :label="$t('Contact.Form.Fields.Firstname.Label')"
                 required
                 outlined
                 @input="$v.name.$touch()"
@@ -56,7 +56,7 @@
                 v-model="lastname"
                 :error-messages="lastnameErrors"
                 :counter="10"
-                label="Lastname"
+                :label="$t('Contact.Form.Fields.Lastname.Label')"
                 required
                 outlined
                 @input="$v.name.$touch()"
@@ -66,7 +66,7 @@
                 v-model="company"
                 :error-messages="companyErrors"
                 :counter="10"
-                label="Company"
+                :label="$t('Contact.Form.Fields.Company.Label')"
                 outlined
                 @input="$v.name.$touch()"
                 @blur="$v.name.$touch()"
@@ -74,7 +74,7 @@
               <v-text-field
                 v-model="email"
                 :error-messages="emailErrors"
-                label="E-mail"
+                :label="$t('Contact.Form.Fields.Email.Label')"
                 required
                 outlined
                 @input="$v.email.$touch()"
@@ -91,15 +91,15 @@
                 v-model="message"
                 :error-messages="messageErrors"
                 :counter="1000"
-                label="Message"
+                :label="$t('Contact.Form.Fields.Message.Label')"
                 required
                 outlined
                 @input="$v.name.$touch()"
                 @blur="$v.name.$touch()"
               ></v-textarea>
 
-              <v-btn class="mr-4" @click="submit">submit</v-btn>
-              <v-btn @click="clear">clear</v-btn>
+              <v-btn tile color="green" class="mr-4 white--text" @click="submit"> {{$t('Contact.Form.Submit')}} </v-btn>
+              <v-btn tile color="primary" @click="clear">{{$t('Contact.Form.Clear')}}</v-btn>
           </v-card>
         </v-col>
       </v-row>
@@ -134,36 +134,35 @@ export default {
     firstnameErrors () {
         const errors = []
         if (!this.$v.firstname.$dirty) return errors
-        !this.$v.firstname.maxLength && errors.push('Name must be at most 10 characters long')
-        !this.$v.firstname.required && errors.push('Name is required.')
+        !this.$v.firstname.maxLength && errors.push(this.$t('Contact.Form.Fields.Firstname.Errors.MaxLengthMessage', {maxLength: 10}))
+        !this.$v.firstname.required && errors.push(this.$t('Contact.Form.Fields.Firstname.Errors.RequiredMessage'))
         return errors
     },
     lastnameErrors () {
         const errors = []
         if (!this.$v.lastname.$dirty) return errors
-        !this.$v.lastname.maxLength && errors.push('Lastname must be at most 10 characters long')
-        !this.$v.lastname.required && errors.push('Lastname is required.')
+        !this.$v.lastname.maxLength && errors.push(this.$t('Contact.Form.Fields.Lastname.Errors.MaxLengthMessage', {maxLength: 10}))
+        !this.$v.lastname.required && errors.push(this.$t('Contact.Form.Fields.Lastname.Errors.RequiredMessage'))
         return errors
     },
     companyErrors () {
         const errors = []
         if (!this.$v.company.$dirty) return errors
-        !this.$v.company.maxLength && errors.push('Lastname must be at most 10 characters long')
-        //!this.$v.lastname.required && errors.push('Lastname is required.')
+        !this.$v.company.maxLength && errors.push(this.$t('Contact.Form.Fields.Company.Errors.MaxLengthMessage', {maxLength: 10}))
         return errors
     },
     messageErrors () {
         const errors = []
         if (!this.$v.message.$dirty) return errors
-        !this.$v.message.maxLength && errors.push('Message must be at most 1000 characters long')
-        !this.$v.message.required && errors.push('Message is required.')
+        !this.$v.message.maxLength && errors.push(this.$t('Contact.Form.Fields.Message.Errors.MaxLengthMessage', {maxLength: 1000}))
+        !this.$v.message.required && errors.push(this.$t('Contact.Form.Fields.Message.Errors.RequiredMessage'))
         return errors
     },
     emailErrors () {
       const errors = []
       if (!this.$v.email.$dirty) return errors
-      !this.$v.email.email && errors.push('Must be valid e-mail')
-      !this.$v.email.required && errors.push('E-mail is required')
+      !this.$v.email.email && errors.push(this.$t('Contact.Form.Fields.Lastname.Errors.ValidMessage'))
+      !this.$v.email.required && errors.push(this.$t('Contact.Form.Fields.Lastname.Errors.ValidMessage'))
       return errors
     },
   },
