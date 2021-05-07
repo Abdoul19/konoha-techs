@@ -101,6 +101,7 @@ export default {
   props: {
     addPresentation: Boolean,
     addBanner: Boolean
-  }
+  },
+  
 }
 </script>

@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify';
 import i18n from './plugins/i18n';
+import Meta from 'vue-meta';
+
+Vue.use(Meta);
 
 Vue.config.productionTip = false
 Vue.prototype.langs = ['fr', 'en']

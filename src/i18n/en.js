@@ -1,5 +1,6 @@
 import Home from './en/Home'
 import NavBar from './en/NavBar'
+import Service from './en/Service'
 import Services from './en/Services'
 import Specialities from './en/Specialities'
 import Contact from './en/Contact'
@@ -14,6 +15,7 @@ import Footer from './en/Footer'
 export default {
   Home,
   NavBar,
+  Service,
   Services,
   Specialities,
   Contact,

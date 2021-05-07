@@ -1,7 +1,7 @@
 export default {
   PageMeta:{
-    Title: 'Home',
-    Description: 'Home page of Konoha Technologies website'
+    Title: 'Services',
+    Description: 'Services page of Konoha Technologies website'
   },
   Hero: {
     Title : "Up your digital game ",

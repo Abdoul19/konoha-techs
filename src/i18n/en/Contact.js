@@ -1,4 +1,8 @@
 export default {
+  PageMeta: {
+    Title: 'Contact',
+    Description: 'Contact page of Konoha Technologies website'
+  },
   Title: "Say Hello",
   Form: {
     Title1: "Have questions ?",
